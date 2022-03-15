@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "head.html" . }}
+
+    <body>
+        {{ if not .IsHome }}
+            {{ partial "breadcrumb.html" . }}
+        {{ end }}
+
+        <div class="header">
+            <h1>
+                <a href="{{ .Site.Home.Permalink | absURL }}">{{ .Site.Title | markdownify }}</a>
+            </h1>
+        </div>
+
+        <div class="main">
+            <nav class="sidebar">
+                {{ with .Site.Home }}
+                    <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
+                {{ end }}
+
+                {{ range .Site.Menus.main }}
+                    {{ $isActive := false }}
+                    {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
+                        {{ $isActive = true }}
+                    {{ end }}
+                    <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+            </nav>
+
+            <div class="content">
+                {{ block "main" . }}
+                    {{ .Content }}
+                {{ end }}
+            </div>
+        </div>
+    </body>
+</html>

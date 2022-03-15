@@ -1,0 +1,26 @@
+<meta itemprop="name" content="{{ .Title | plainify }}">
+<meta itemprop="description" content="{{ (partial "seo-tags/description.html" .) | plainify }}">
+
+{{ $format := "2006-01-02T15:04:05-07:00" }}
+{{ with .Date }}
+    <meta itemprop="datePublished" content="{{ .Format $format }}">
+{{ end }}
+{{ with .Lastmod }}
+    <meta itemprop="dateModified" content="{{ .Format $format }}">
+{{ end }}
+
+<meta itemprop="wordCount" content="{{ .WordCount }}">
+
+{{ $images := $.Resources.ByType "image" }}
+{{ $featured := $images.GetMatch "*feature*" }}
+{{ if not $featured }}
+    {{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}
+{{ end }}
+
+{{ with $featured }}
+    <meta itemprop="image" content="{{ $featured.Permalink }}">
+{{ end }}
+
+{{ with .Params.tags }}
+    <meta itemprop="keywords" content="{{ delimit . ", " }}">
+{{ end }}

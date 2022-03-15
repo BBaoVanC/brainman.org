@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ hugo.Generator }}
+
+    {{ with resources.Get "css/style.css" | fingerprint "sha512" }}
+        <link rel="stylesheet" type="text/css" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+
+    {{ with .Site.Params.faviconICO }}
+        <link rel="icon" type="image/x-icon" href="{{ . | absURL }}" />
+    {{ end }}
+    {{ with .Site.Params.faviconPNG }}
+        <link rel="icon" type="image/png" href="{{ . | absURL }}" />
+    {{ end }}
+
+    {{ if .IsHome }}
+        <title>{{ .Site.Title | plainify }}</title>
+    {{ else }}
+        <title>{{ (print .Title " | " .Site.Title) | plainify }}</title>
+    {{ end }}
+
+    {{ partial "seo-tags/opengraph.html" . }}
+    {{ partial "seo-tags/twitter-cards.html" . }}
+    {{ partial "seo-tags/schema.html" . }}
+    {{ partial "seo-tags/link.html" . }}
+    {{ partial "seo-tags/author.html" . }}
+
+    <meta name="language" content="{{ .Language.Lang }}">
+    <meta name="description" content="{{ (partial "seo-tags/description.html" .) | plainify }}">
+</head>

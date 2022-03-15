@@ -1,3 +1,4 @@
+title: Brainman
 baseURL: https://brainman.org
 defaultContentLanguage: en
 sectionPagesMenu: main
@@ -45,12 +46,6 @@ privacy:
 
   youtube:
     privacyEnhanced: true
-
-languages:
-  en:
-    languageName: English
-    title: Brainman
-    weight: 1
 
 #  es:
 #    languageName: Español

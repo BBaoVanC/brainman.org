@@ -1,0 +1,32 @@
+/* Header */
+.header {
+    text-align: center
+}
+.header a {
+    color: inherit;
+}
+
+
+/* Body itself */
+body {
+}
+
+
+/* Basic layout */
+.main {
+    display: flex;
+}
+
+.sidebar {
+    width: 150px;
+}
+.content {
+    flex: 1 0 auto;
+    margin-left: 10px;
+}
+
+
+/* General elements */
+a {
+    text-decoration: inherit;
+}
