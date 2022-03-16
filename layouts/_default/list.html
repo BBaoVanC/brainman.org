@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <h1>
+        {{ .Title | markdownify }}
+    </h1>
+
+    <div class="list-page-content">
+        {{ with .Sections }}
+            <div class="section-list">
+                {{ range . }}
+                    {{ .Render "summary/section" }}
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+
+    <div class="page-list">
+        {{ with .Paginator.Pages }}
+            <ul>
+                {{ range . }}
+                    <li>{{ .Render "summary/post" }}</li>
+                {{ end }}
+            </ul>
+        {{ else }}
+            <div>
+                No posts here!
+            </div>
+        {{ end }}
+    </div>
+{{ end }}

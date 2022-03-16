@@ -1,0 +1,11 @@
+<a class="section-anchor" href="{{ .Permalink }}">
+    <div class="section">
+        <h2 class="section-title">
+            {{ .Title | markdownify }}
+        </h2>
+
+        <div class="section-description">
+            {{ partial "description-or-summary.html" . }}
+        </div>
+    </div>
+</a>

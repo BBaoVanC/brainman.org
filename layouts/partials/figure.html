@@ -1,0 +1,28 @@
+{{ $hidecaption := index . "hidecaption" }}
+
+{{ if index . "noborder" }}
+    <figure>
+{{ else }}
+    <figure class="border">
+{{ end }}
+
+    {{ with index . "src" }}
+        {{ $media := . }}
+        {{ if eq .MediaType.MainType "image" }}
+            <img src="{{ $media.Permalink }}" alt="{{ $media.Title }}" />
+        {{ else if eq .MediaType.MainType "video" }}
+            <video controls>
+                <source src="{{ $media.Permalink }}" alt="{{ $media.Title }}">
+                Your browser does not support video.
+            </video>
+        {{ end }}
+
+        {{ if not $hidecaption }}
+            {{ with $media.Title }}
+                <figcaption>
+                    {{ . | markdownify }}
+                </figcaption>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</figure>

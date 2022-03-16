@@ -1,0 +1,24 @@
+<div class="post-metadata" aria-label="post metadata">
+    {{ if .Date }}
+        <span class="post-meta-item" aria-label="date">
+            <time datetime="{{ .Date.Format "2006-01-02" }}" pubdate>
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+        </span>
+    {{ end }}
+
+    {{/*<span class="post-meta-item" aria-label="reading time">
+        {{ .ReadingTime }} {{ if eq .ReadingTime 1 }}min{{ else }}mins{{ end }}
+    </span>*/}}
+
+    {{ with (.GetTerms "tags") }}
+        {{ $tags := slice }}
+        {{ range . }}
+            {{ $tags = $tags | append (printf `<a href="%s">%s</a>` .Permalink .LinkTitle) }}
+        {{ end }}
+
+        <div class="tags" aria-label="tags">
+            Tags: {{ delimit $tags ", " }}
+        </div>
+    {{ end }}
+</div>

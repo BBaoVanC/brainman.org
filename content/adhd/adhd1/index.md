@@ -1,7 +1,7 @@
 ---
 
-title: {{ replace .Name "-" " " | humanize }}
-date: {{ .Date }}
+title: Adhd1
+date: 2022-03-15T17:11:12-05:00
 toc: true
 comments: true
 draft: true
@@ -9,11 +9,12 @@ draft: true
 tags:
   - awesome
 
-# featured image/video (delete this section if not needed)
-resources:
-  - name: feature
-    src: something.webp
-    title: Some image (image format can be anything; webp is just an example)
+## this will be shown for the article in list pages and in the page metadata
+## it can be either an image or video (this might change in the future, however)
+#resources:
+#  - name: feature
+#    src: something.webp
+#    title: Some image (image format can be anything; webp is just an example)
 
 ---
 

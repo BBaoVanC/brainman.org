@@ -3,10 +3,6 @@
     {{ partial "head.html" . }}
 
     <body>
-        {{ if not .IsHome }}
-            {{ partial "breadcrumb.html" . }}
-        {{ end }}
-
         <div class="header">
             <h1>
                 <a href="{{ .Site.Home.Permalink | absURL }}">{{ .Site.Title | markdownify }}</a>
@@ -15,20 +11,26 @@
 
         <div class="main">
             <nav class="sidebar">
-                {{ with .Site.Home }}
-                    <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
-                {{ end }}
-
-                {{ range .Site.Menus.main }}
-                    {{ $isActive := false }}
-                    {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
-                        {{ $isActive = true }}
+                <ul>
+                    {{ with .Site.Home }}
+                        <li><a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a></li>
                     {{ end }}
-                    <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-                {{ end }}
+
+                    {{ range .Site.Menus.main }}
+                        {{ $isActive := false }}
+                        {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
+                            {{ $isActive = true }}
+                        {{ end }}
+                        <li><a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
             </nav>
 
             <div class="content">
+                {{ if not .IsHome }}
+                    {{ partial "breadcrumb.html" . }}
+                {{ end }}
+
                 {{ block "main" . }}
                     {{ .Content }}
                 {{ end }}
