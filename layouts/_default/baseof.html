@@ -9,7 +9,7 @@
             </h1>
         </div>
 
-        <div class="main">
+        <div class="page">
             <nav class="sidebar">
                 <ul>
                     {{ with .Site.Home }}
@@ -26,14 +26,16 @@
                 </ul>
             </nav>
 
-            <div class="content">
+            <div class="main">
                 {{ if not .IsHome }}
                     {{ partial "breadcrumb.html" . }}
                 {{ end }}
 
-                {{ block "main" . }}
-                    {{ .Content }}
-                {{ end }}
+                <div class="content">
+                    {{ block "main" . }}
+                        {{ .Content }}
+                    {{ end }}
+                </div>
             </div>
         </div>
     </body>

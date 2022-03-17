@@ -11,19 +11,22 @@
                 {{ end }}
             </div>
         {{ end }}
+
+        <div class="page-list">
+            {{ with .Paginator.Pages }}
+                <ul>
+                    {{ range . }}
+                        <li>{{ .Render "summary/post" }}</li>
+                    {{ end }}
+                </ul>
+            {{ else }}
+                <div>
+                    No posts here!
+                </div>
+            {{ end }}
+        </div>
+
     </div>
 
-    <div class="page-list">
-        {{ with .Paginator.Pages }}
-            <ul>
-                {{ range . }}
-                    <li>{{ .Render "summary/post" }}</li>
-                {{ end }}
-            </ul>
-        {{ else }}
-            <div>
-                No posts here!
-            </div>
-        {{ end }}
-    </div>
+    {{ partial "pagination.html" . }}
 {{ end }}
