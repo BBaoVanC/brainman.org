@@ -1,20 +1,18 @@
 ---
 
-title: Adhd1
-date: 2022-03-15T17:11:12-05:00
+title: Test4
+date: 2022-03-20T18:05:36-05:00
 toc: true
-comments: true
 draft: true
 
 tags:
   - awesome
 
-## this will be shown for the article in list pages and in the page metadata
-## it can be either an image or video (this might change in the future, however)
-#resources:
-#  - name: feature
-#    src: something.webp
-#    title: Some image (image format can be anything; webp is just an example)
+# featured image/video (delete this resources section if not needed)
+resources:
+  - name: feature
+    src: something.webp
+    title: Some image (image format can be anything; webp is just an example)
 
 ---
 
@@ -32,6 +30,4 @@ the Hugo docs for more information.
 ## Something
 
 All the content below the "more" HTML comment above is part of the article
-itself.
-
-![Example image](something.png)
+itself rather than the summary.

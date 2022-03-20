@@ -1,15 +1,14 @@
 ---
 
-title: Example post two
-date: 2022-03-16T18:00:15-05:00
+title: Test2
+date: 2022-03-20T18:05:35-05:00
 toc: true
-comments: true
-draft: false
+draft: true
 
 tags:
   - awesome
 
-# featured image/video (delete this section if not needed)
+# featured image/video (delete this resources section if not needed)
 resources:
   - name: feature
     src: something.webp
@@ -31,6 +30,4 @@ the Hugo docs for more information.
 ## Something
 
 All the content below the "more" HTML comment above is part of the article
-itself.
-
-![Example image](something.png)
+itself rather than the summary.
