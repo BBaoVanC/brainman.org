@@ -1,3 +1,14 @@
+params:
+  # these are for the OpenGraph/Twitter embeds in Hugo
+  description: A website
+  #bannerContent: some text
+
+  # these are for favicons (unset by default)
+  faviconICO: favicon.ico
+  faviconPNG: favicon.png
+
+
+
 title: Brainman
 baseURL: https://brainman.org
 defaultContentLanguage: en
@@ -5,7 +16,6 @@ sectionPagesMenu: main
 enableRobotsTXT: true
 #paginate: 5
 paginate: 2
-enableGitInfo: true
 
 taxonomies:
   category: categories
@@ -18,21 +28,6 @@ markup:
   highlight:
     #noClasses: false
     lineNos: true
-
-params:
-  # these are for the OpenGraph/Twitter embeds in Hugo
-  description: A website
-
-  # these are for favicons (unset by default)
-  faviconICO: favicon.ico
-  faviconPNG: favicon.png
-
-  # show reading time (enabled by default)
-  #readingtime: true
-
-  # used for "View source" (unset by default)
-  gitFileURL: https://github.com/BBaoVanC/bbaovanc.com/blob/master
-  gitFileIcon: code
 
 # see https://gohugo.io/about/hugo-and-gdpr/#all-privacy-settings
 privacy:
