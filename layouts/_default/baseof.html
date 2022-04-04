@@ -13,7 +13,12 @@
             <nav class="sidebar">
                 <ul>
                     {{ with .Site.Home }}
-                        <li><a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a></li>
+                        <li>
+                            {{ with resources.Get "img/bullet.png" }}
+                                <img src="{{ .Permalink }}">
+                            {{ end }}
+                            <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
+                        </li>
                     {{ end }}
 
                     {{ range .Site.Menus.main }}
@@ -21,7 +26,12 @@
                         {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
                             {{ $isActive = true }}
                         {{ end }}
-                        <li><a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a></li>
+                        <li>
+                            {{ with resources.Get "img/bullet.png" }}
+                                <img src="{{ .Permalink }}">
+                            {{ end }}
+                            <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
                     {{ end }}
                 </ul>
             </nav>
@@ -36,6 +46,16 @@
                         {{ .Content }}
                     {{ end }}
                 </div>
+
+                <hr>
+
+                <footer>
+                    <small>
+                        <p>Email: {{ .Site.Params.emailAddress }}</p>
+                        <p>Facebook: {{ .Site.Params.facebookName }}</p>
+                        <p>CaringBridge: {{ .Site.Params.caringBridgeName }}</p>
+                    </small>
+                </footer>
             </div>
         </div>
     </body>

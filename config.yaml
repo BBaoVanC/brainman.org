@@ -3,9 +3,13 @@ params:
   description: A website
   #bannerContent: some text
 
-  # these are for favicons (unset by default)
+  # these are for favicons
   faviconICO: favicon.ico
   faviconPNG: favicon.png
+
+  emailAddress: "davidgroot60[at]gmail.com"
+  facebookName: "@johndoe"
+  caringBridgeName: "something something"
 
 
 
@@ -15,7 +19,7 @@ defaultContentLanguage: en
 sectionPagesMenu: main
 enableRobotsTXT: true
 #paginate: 5
-paginate: 2
+paginate: 3
 
 taxonomies:
   category: categories

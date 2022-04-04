@@ -1,7 +1,7 @@
 ---
 
-title: Test2
-date: 2022-03-20T18:05:35-05:00
+title: An example post
+date: 2022-04-03T19:16:23-05:00
 toc: true
 draft: true
 
