@@ -9,54 +9,48 @@
             </h1>
         </div>
 
-        <div class="page">
-            <nav class="sidebar">
-                <ul>
-                    {{ with .Site.Home }}
-                        <li>
-                            {{ with resources.Get "img/bullet.png" }}
-                                <img src="{{ .Permalink }}">
-                            {{ end }}
-                            <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
-                        </li>
+        <nav class="navbar">
+            {{ with .Site.Home }}
+                <div class="navbar-item">
+                    {{ with resources.Get "img/bullet.png" }}
+                        <img src="{{ .Permalink }}">
                     {{ end }}
-
-                    {{ range .Site.Menus.main }}
-                        {{ $isActive := false }}
-                        {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
-                            {{ $isActive = true }}
-                        {{ end }}
-                        <li>
-                            {{ with resources.Get "img/bullet.png" }}
-                                <img src="{{ .Permalink }}">
-                            {{ end }}
-                            <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-                        </li>
-                    {{ end }}
-                </ul>
-            </nav>
-
-            <div class="main">
-                {{ if not .IsHome }}
-                    {{ partial "breadcrumb.html" . }}
-                {{ end }}
-
-                <div class="content">
-                    {{ block "main" . }}
-                        {{ .Content }}
-                    {{ end }}
+                    <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
                 </div>
+            {{ end }}
 
-                <hr>
+            {{ range .Site.Menus.main }}
+                {{ $isActive := false }}
+                {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
+                    {{ $isActive = true }}
+                {{ end }}
+                <div class="navbar-item">
+                    {{ with resources.Get "img/bullet.png" }}
+                        <img src="{{ .Permalink }}">
+                    {{ end }}
+                    <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                </div>
+            {{ end }}
+        </nav>
 
-                <footer>
-                    <small>
-                        <p>Email: {{ .Site.Params.emailAddress }}</p>
-                        <p>Facebook: {{ .Site.Params.facebookName }}</p>
-                        <p>CaringBridge: {{ .Site.Params.caringBridgeName }}</p>
-                    </small>
-                </footer>
-            </div>
+        {{ if not .IsHome }}
+            {{ partial "breadcrumb.html" . }}
+        {{ end }}
+
+        <div class="content">
+            {{ block "main" . }}
+                {{ .Content }}
+            {{ end }}
         </div>
+
+        <hr>
+
+        <footer>
+            <small>
+                <p>Email: {{ .Site.Params.emailAddress }}</p>
+                <p>Facebook: {{ .Site.Params.facebookName }}</p>
+                <p>CaringBridge: {{ .Site.Params.caringBridgeName }}</p>
+            </small>
+        </footer>
     </body>
 </html>
