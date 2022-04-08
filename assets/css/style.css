@@ -26,11 +26,11 @@ a:hover {
 }
 
 
-/* Header */
-.header {
+/* Title */
+.title {
     text-align: center
 }
-.header a {
+.title a {
     color: inherit;
 }
 
@@ -58,6 +58,7 @@ footer p {
     justify-content: space-evenly;
     padding: 4px 8px;
     background-color: var(--background-1);
+    flex: 1;
 }
 
 .navbar-item {
@@ -73,6 +74,33 @@ footer p {
     height: 12px;
     width: 12px;
 }
+
+/* Homepage top */
+.navbar-homepage {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px;
+    background-color: var(--background-1);
+    height: 100%;
+    flex: 1;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-survivor {
+}
+
+.nav-survivor-image {
+    width: 100%;
+}
+
+/*.nav-survivor-image {
+    background-size: cover;
+    background-position: bottom;
+}*/
 
 
 /* List page */

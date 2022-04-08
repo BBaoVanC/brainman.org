@@ -1,0 +1,44 @@
+<div class="nav-container">
+    {{ if .IsHome }}
+    <nav class="navbar-homepage">
+    {{ else }}
+    <nav class="navbar">
+    {{ end }}
+
+        {{ with .Site.Home }}
+            <div class="navbar-item">
+                {{ with resources.Get "img/bullet.png" }}
+                    <img src="{{ .Permalink }}">
+                {{ end }}
+                <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
+            </div>
+        {{ end }}
+
+        {{ range .Site.Menus.main }}
+            {{ $isActive := false }}
+            {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
+                {{ $isActive = true }}
+            {{ end }}
+            <div class="navbar-item">
+                {{ with resources.Get "img/bullet.png" }}
+                    <img src="{{ .Permalink }}">
+                {{ end }}
+                <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+            </div>
+        {{ end }}
+    </nav>
+
+    {{ if .IsHome }}
+        <div class="nav-survivor">
+            {{ with resources.Get "img/keep_moving_forward.jpg" | fingerprint "sha256" }}
+            <!--
+                <div class="nav-survivor-image" style="background-image: url({{ .Permalink }});">
+                    hello
+                </div>
+            -->
+
+                <img class="nav-survivor-image" src="{{ .Permalink }}" alt="Keep moving forward">
+            {{ end }}
+        </div>
+    {{ end }}
+</div>

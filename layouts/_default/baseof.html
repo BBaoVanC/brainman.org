@@ -3,35 +3,13 @@
     {{ partial "head.html" . }}
 
     <body>
-        <div class="header">
+        <div class="title">
             <h1>
                 <a href="{{ .Site.Home.Permalink | absURL }}">{{ .Site.Title | markdownify }}</a>
             </h1>
         </div>
 
-        <nav class="navbar">
-            {{ with .Site.Home }}
-                <div class="navbar-item">
-                    {{ with resources.Get "img/bullet.png" }}
-                        <img src="{{ .Permalink }}">
-                    {{ end }}
-                    <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
-                </div>
-            {{ end }}
-
-            {{ range .Site.Menus.main }}
-                {{ $isActive := false }}
-                {{ if or ($.HasMenuCurrent .Menu .) ($.IsMenuCurrent .Menu .) }}
-                    {{ $isActive = true }}
-                {{ end }}
-                <div class="navbar-item">
-                    {{ with resources.Get "img/bullet.png" }}
-                        <img src="{{ .Permalink }}">
-                    {{ end }}
-                    <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-                </div>
-            {{ end }}
-        </nav>
+        {{ partial "nav.html" . }}
 
         {{ if not .IsHome }}
             {{ partial "breadcrumb.html" . }}
