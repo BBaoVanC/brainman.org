@@ -15,7 +15,7 @@
             {{ partial "breadcrumb.html" . }}
         {{ end }}
 
-        <div class="content">
+        <div class="main">
             {{ block "main" . }}
                 {{ .Content }}
             {{ end }}
@@ -24,11 +24,7 @@
         <hr>
 
         <footer>
-            <small>
-                <p>Email: {{ .Site.Params.emailAddress }}</p>
-                <p>Facebook: {{ .Site.Params.facebookName }}</p>
-                <p>CaringBridge: {{ .Site.Params.caringBridgeName }}</p>
-            </small>
+            <small>{{ readFile "footer.md" | .RenderString (dict "display" "inline") }}</small>
         </footer>
     </body>
 </html>

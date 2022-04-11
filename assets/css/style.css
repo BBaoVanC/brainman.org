@@ -81,26 +81,35 @@ footer p {
     flex-direction: column;
     padding: 4px 8px;
     background-color: var(--background-1);
-    height: 100%;
     flex: 1;
 }
 
-.nav-container {
+.nav-container-homepage {
     display: flex;
     flex-direction: row;
 }
 
 .nav-survivor {
+    flex: 1;
 }
 
 .nav-survivor-image {
     width: 100%;
 }
 
-/*.nav-survivor-image {
-    background-size: cover;
-    background-position: bottom;
-}*/
+/* Homepage */
+.homepage-main-image {
+    margin: 50px 0;
+}
+
+.homepage-main-image h1, .homepage-main-image h2 {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.homepage-main-image img {
+    width: 100%;
+}
 
 
 /* List page */

@@ -21,7 +21,9 @@
         </div>
     {{ end }}
 
-    {{ .Content }}
+    <div class="content">
+        {{ .Content }}
+    </div>
 
     {{ with .Site.RegularPages.Related . | first 5 }}
         <div class="see-also">

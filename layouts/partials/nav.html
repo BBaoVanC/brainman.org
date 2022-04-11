@@ -1,4 +1,9 @@
+{{ if .IsHome }}
+<div class="nav-container-homepage">
+{{ else }}
 <div class="nav-container">
+{{ end }}
+
     {{ if .IsHome }}
     <nav class="navbar-homepage">
     {{ else }}
@@ -31,13 +36,7 @@
     {{ if .IsHome }}
         <div class="nav-survivor">
             {{ with resources.Get "img/keep_moving_forward.jpg" | fingerprint "sha256" }}
-            <!--
-                <div class="nav-survivor-image" style="background-image: url({{ .Permalink }});">
-                    hello
-                </div>
-            -->
-
-                <img class="nav-survivor-image" src="{{ .Permalink }}" alt="Keep moving forward">
+                <img class="nav-survivor-image" src="{{ .Permalink }}" alt="Keep moving forward shirt">
             {{ end }}
         </div>
     {{ end }}

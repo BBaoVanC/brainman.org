@@ -1,2 +1,14 @@
 {{ define "main" }}
+
+    <div class="homepage-main-image">
+        <h1>KEEP MOVING FORWARD</h1>
+        {{ with resources.Get "img/brain.jpg" | fingerprint "sha256" }}
+            <img src="{{ .Permalink }}" alt="Brain man image">
+        {{ end }}
+        <h2>Brain Cancer Awareness</h2>
+    </div>
+
+    <div class="content">
+        {{ .Content }}
+    </div>
 {{ end }}
