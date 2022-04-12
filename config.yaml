@@ -16,7 +16,6 @@ params:
 title: Brainman
 baseURL: https://brainman.org
 defaultContentLanguage: en
-sectionPagesMenu: main
 enableRobotsTXT: true
 #paginate: 5
 paginate: 3

@@ -1,8 +1,0 @@
----
-
-title: ADHD
-
-description: >-
-  Something
-
----
