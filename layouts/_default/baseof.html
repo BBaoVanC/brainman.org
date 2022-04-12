@@ -23,8 +23,10 @@
 
         <hr>
 
+        {{ with .Site.Params.footer }}
         <footer>
-            <small>{{ readFile "footer.md" | .RenderString (dict "display" "inline") }}</small>
+            <small>{{ . | $.RenderString (dict "display" "inline")}}</small>
         </footer>
+        {{ end }}
     </body>
 </html>

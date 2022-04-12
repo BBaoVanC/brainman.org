@@ -7,9 +7,22 @@ params:
   faviconICO: favicon.ico
   faviconPNG: favicon.png
 
-  emailAddress: "davidgroot60[at]gmail.com"
-  facebookName: "@johndoe"
-  caringBridgeName: "something something"
+  footer: |-
+    Email: davidgroot60@gmail.com
+
+    Links:
+
+    [Braincancer.org](https://braincancer.org)
+
+    [Victory in the Valley](https://example.com)
+
+    Social Media:
+
+    Facebook Twitter Instagram
+
+    Source Code:
+
+    https://github.com/BBaoVanC/brainman.org
 
 
 

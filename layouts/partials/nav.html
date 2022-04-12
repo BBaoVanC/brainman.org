@@ -12,7 +12,7 @@
 
         {{ with .Site.Home }}
             <div class="navbar-item">
-                {{ with resources.Get "img/bullet.png" }}
+                {{ with resources.Get "img/brain.jpg" }}
                     <img src="{{ .Permalink }}">
                 {{ end }}
                 <a class="navbar-item{{ if $.IsHome }} active{{ end }}" href="{{ .Permalink | absURL }}">{{ .Title | markdownify }}</a>
@@ -25,7 +25,7 @@
                 {{ $isActive = true }}
             {{ end }}
             <div class="navbar-item">
-                {{ with resources.Get "img/bullet.png" }}
+                {{ with resources.Get "img/brain.jpg" }}
                     <img src="{{ .Permalink }}">
                 {{ end }}
                 <a class="navbar-item{{ if $isActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
